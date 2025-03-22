@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+pydantic
+llama-cpp-python
+orjson  # Faster JSON handling (optional)
+loguru  # Advanced logging (optional)
+gunicorn  # Production server (optional)
+huggingface-hub
+confluent-kafka
+python-dotenv
+httpx
+psutil

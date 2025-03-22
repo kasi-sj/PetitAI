@@ -1,0 +1,16 @@
+{
+  "name": "petitionbackgroundservice",
+  "version": "1.0.0",
+  "description": "an background service used as an pipline to transfer request between services",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "dotenv": "^16.4.7",
+    "kafkajs": "^2.2.4"
+  }
+}

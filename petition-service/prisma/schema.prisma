@@ -1,0 +1,227 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "debian-openssl-1.1.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum PriorityEnum {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+enum StatusEnum {
+  ERROR
+  SUBMITTED
+  QUEUED
+  CATEGORIZING
+  CATEGORY_ASSIGNED
+  ASSIGNED
+  DELEGATED
+  FORWARDED
+  PROCESSING
+  REPEATED_REJECTION
+  REJECTED
+  PROCESSED
+}
+
+enum GenderEnum {
+  MALE
+  FEMALE
+  OTHER
+}
+
+model User {
+  id             String  @id @default(uuid())
+  name           String
+  email          String  @unique
+  hashedPassword String?
+  googleId       String? @unique // Nullable for non-Google-auth users
+
+  dob        DateTime?
+  gender     GenderEnum @default(OTHER)
+  profilePic String?    @default("")
+  address    String?    @default("")
+  phoneNo    String?    @default("")
+  bio        String?    @default("")
+
+  isActive         Boolean       @default(true)
+  petitions        Petition[] // One-to-Many relationship
+  isAdmin          Boolean       @default(false)
+  adminOf          Organization?
+  isSetUpCompleted Boolean       @default(false)
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+}
+
+model Organization {
+  id              String  @id @default(uuid())
+  name            String  @unique
+  imageURL        String? @default("")
+  description     String? @default("")
+  website         String? @default("")
+  phoneNumber     String? @default("")
+  address         String? @default("")
+  establishedYear Int?
+  email           String? @default("")
+  admin           User?   @relation(fields: [adminId], references: [id]) // One-to-One relation
+  adminId         String? @unique
+
+  isActive            Boolean @default(true)
+  similarityThreshold Int     @default(90)
+
+  whitelistedEmails WhitelistedEmail[]
+  departments       Department[]
+  users             OrganizationUser[]
+  roles             Role[]
+  petitions         Petition[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model WhitelistedEmail {
+  id             String       @id @default(uuid())
+  email          String       @unique
+  organization   Organization @relation(fields: [organizationId], references: [id])
+  organizationId String
+  createdAt      DateTime     @default(now())
+}
+
+model Department {
+  id             String             @id @default(uuid())
+  organization   Organization       @relation(fields: [organizationId], references: [id])
+  organizationId String
+  name           String
+  description    String?            @default("")
+  isRoot         Boolean            @default(false)
+  users          OrganizationUser[]
+  petitions      Petition[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([organizationId, name]) // Ensure department name is unique within an organization
+}
+
+model OrganizationUser {
+  id             String       @id @default(uuid())
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Restrict)
+  organizationId String
+
+  department   Department? @relation(fields: [departmentId], references: [id], onDelete: SetNull)
+  departmentId String?
+
+  role   Role?   @relation(fields: [roleId], references: [id], onDelete: SetNull)
+  roleId String?
+
+  reportTo     OrganizationUser?  @relation("ReportTo", fields: [reportToId], references: [id], onDelete: SetNull)
+  reportToId   String?
+  subordinates OrganizationUser[] @relation("ReportTo")
+
+  // The Petition and PetitionAssignments relations should be controlled in their own models.
+  petition            Petition[]
+  petitionAssignments PetitionOrganizationUserAssignment[]
+
+  // Embedded user details (instead of linking to an external User model)
+  name           String
+  email          String?
+  hashedPassword String
+  imageURL       String? @default("")
+
+  isActive Boolean @default(true)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([organizationId, name])
+}
+
+model Role {
+  id                String             @id @default(uuid())
+  organization      Organization       @relation(fields: [organizationId], references: [id])
+  organizationId    String
+  organizationUsers OrganizationUser[]
+
+  roleName  String
+  priority  Int
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([organizationId, roleName]) // Enforce unique role per organization
+}
+
+model StatusUpdate {
+  id         String   @id @default(uuid())
+  petition   Petition @relation(fields: [petitionId], references: [id])
+  petitionId String // Each status update must belong to a petition
+
+  status      StatusEnum
+  description String     @default("")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // @@index([petitionId, createdAt(sort: Desc)]) // Optimize lookup for latest status per petition
+  @@index([status]) // Optimize filtering by status
+}
+
+model PetitionOrganizationUserAssignment {
+  id                 String           @id @default(uuid())
+  petition           Petition         @relation(fields: [petitionId], references: [id])
+  petitionId         String
+  organizationUser   OrganizationUser @relation(fields: [organizationUserId], references: [id])
+  organizationUserId String
+  isActive           Boolean          @default(true)
+  createdAt          DateTime         @default(now())
+  updatedAt          DateTime         @updatedAt
+}
+
+model Petition {
+  id             String       @id @default(uuid())
+  fromUser       User         @relation(fields: [fromUserId], references: [id])
+  fromUserId     String
+  organization   Organization @relation(fields: [organizationId], references: [id])
+  organizationId String
+  department     Department?  @relation(fields: [departmentId], references: [id])
+  departmentId   String?
+
+  subject String
+  body    String
+  tag     String
+
+  priority    PriorityEnum
+  attachments String[]     @default([]) // File URLs (PDF, images, etc.)
+
+  statusUpdates               StatusUpdate[]
+  assignees                   OrganizationUser[]
+  organizationUserAssignments PetitionOrganizationUserAssignment[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([tag]) // Optimize filtering by tag
+}
+
+model VerificationToken {
+  id             String   @id @default(uuid())
+  userName       String
+  hashedPassword String
+  token          String   @unique
+  email          String   @unique
+  expiryDate     DateTime
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

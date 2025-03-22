@@ -1,0 +1,37 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const cors_1 = __importDefault(require("cors"));
+const client_1 = require("@prisma/client");
+const embedding_routes_1 = __importDefault(require("./routes/embedding.routes"));
+const user_routes_1 = __importDefault(require("./routes/user.routes"));
+const organization_routes_1 = __importDefault(require("./routes/organization.routes"));
+const department_routes_1 = __importDefault(require("./routes/department.routes"));
+const organization_user_routes_1 = __importDefault(require("./routes/organization-user.routes"));
+const role_routes_1 = __importDefault(require("./routes/role.routes"));
+const petition_routes_1 = __importDefault(require("./routes/petition.routes"));
+const queue_routes_1 = __importDefault(require("./routes/queue.routes"));
+const db_1 = require("./config/db");
+const kafkaConfig_1 = require("./config/kafkaConfig");
+const app = (0, express_1.default)();
+const prisma = new client_1.PrismaClient();
+(0, db_1.connectMongoDB)();
+(0, kafkaConfig_1.connectToQueue)();
+app.use(express_1.default.json());
+app.use((0, cors_1.default)());
+app.use("/embeddings", embedding_routes_1.default);
+app.use("/users", user_routes_1.default);
+app.use("/organizations", organization_routes_1.default);
+app.use("/roles", role_routes_1.default);
+app.use("/departments", department_routes_1.default);
+app.use("/organization-users", organization_user_routes_1.default);
+app.use("/petitions", petition_routes_1.default);
+app.use("/queues", queue_routes_1.default);
+app.get("/", (req, res) => {
+    res.send("Prisma + TypeScript API");
+});
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`🚀 Server running on http://localhost:${PORT}`));

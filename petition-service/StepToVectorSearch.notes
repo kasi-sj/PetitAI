@@ -1,0 +1,18 @@
+
+Create index in MongoDB:
+```json
+    {
+    "fields": [
+        {
+        "numDimensions": 768,
+        "path": "embedding",
+        "similarity": "cosine",
+        "type": "vector"
+        },
+        {
+        "path": "tag",
+        "type": "filter"
+        }
+    ]
+    }
+```
