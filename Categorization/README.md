@@ -1,15 +1,3 @@
----
-title: Categorization
-emoji: 🐨
-colorFrom: gray
-colorTo: pink
-sdk: docker
-pinned: false
----
-
-Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
-
-
 # Text Classification API
 
 This is a FastAPI-based service that classifies text into predefined departments using the Mistral-7B-Instruct model.

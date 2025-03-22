@@ -1,16 +1,3 @@
----
-title: Embedding API
-emoji: 🧠
-colorFrom: blue
-colorTo: gray
-sdk: docker
-sdk_version: "1.0"
-app_file: main.py
-pinned: false
----
-
-Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
-
 # Embedding API
 
 This is a FastAPI-based embedding server that uses the **multi-qa-mpnet-base-dot-v1** model from **SentenceTransformers** to generate text embeddings.
