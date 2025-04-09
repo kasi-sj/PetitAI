@@ -28,6 +28,10 @@ PetitAI is a full-fledged, AI-powered platform designed to streamline petition c
 ![image](https://github.com/user-attachments/assets/eec9657e-f2c3-4596-b13d-baa61b38ec23)
 ![image](https://github.com/user-attachments/assets/01703e86-e453-47eb-8097-ec5f0f70ce87)
 
+# Petition Submitter (User)
+![image](https://github.com/user-attachments/assets/5f177112-9985-434e-a2b0-af5be25a5c68)
+![image](https://github.com/user-attachments/assets/015abfc5-d094-4252-a8d8-079070902193)
+![image](https://github.com/user-attachments/assets/b6cb1efa-3b34-4259-97da-0f6027f3ef13)
 
 ### 🛎️ Notification Templates
 
