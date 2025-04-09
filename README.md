@@ -3,6 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 PetitAI is a full-fledged, AI-powered platform designed to streamline petition creation, processing, and management using modern web technologies, distributed systems, and machine learning. It brings together a user-friendly interface with robust backend services to automate the petition workflow from submission to resolution.
+---
 
 ## 📸 Application Preview
 
@@ -49,6 +50,11 @@ PetitAI is a full-fledged, AI-powered platform designed to streamline petition c
   </tr>
 </table>
 
+### 👀 View Petition
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/d51c0c80-0a45-445a-a200-582034ebbe07" width="40%" />
+</div>
+
 ### 📊 Analytics | 👥 Users | 🗂️ Departments
 <table>
   <tr>
@@ -79,14 +85,22 @@ PetitAI is a full-fledged, AI-powered platform designed to streamline petition c
   </tr>
 </table>
 
+### 👀 View Petition
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/89664a59-9b3c-4761-8dec-6e46ef8e631f" width="40%" />
+</div>
+
 ---
 
-### 🛎️ Notification Templates
+## 🛎️ Notification Templates
 
 <div align="center">
   <img src="https://github.com/user-attachments/assets/4e97b528-0a5a-486a-9ce9-cc8a422a6273" width="45%" />
   <img src="https://github.com/user-attachments/assets/5126975b-51e9-4da5-97d7-ba6302a73c4e" width="45%" />
 </div>
+
+---
+
 
 ## 🗂 Project Components
 
