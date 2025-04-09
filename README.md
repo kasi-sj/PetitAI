@@ -8,15 +8,44 @@ PetitAI is a full-fledged, AI-powered platform designed to streamline petition c
 
 ![image](https://github.com/user-attachments/assets/7f60102c-12dd-4f24-9a02-1f8af915fdc9)
 
-# Admin
-![image](https://github.com/user-attachments/assets/88e44084-583e-46c4-8175-27d8c2c7897a)
-![image](https://github.com/user-attachments/assets/7f6dd854-ba12-46a8-9b87-04f179bed3ac)
-![image](https://github.com/user-attachments/assets/999e3bb6-5d40-4607-9ea7-99df5fee811d)
-![image](https://github.com/user-attachments/assets/49794a28-2174-43bb-8741-ba24b11398c9)
-![image](https://github.com/user-attachments/assets/848ac751-11d7-42a2-9efd-6665ed15f0fd)
-![image](https://github.com/user-attachments/assets/f7f367a7-9abc-4329-a4f9-615d01892fd6)
-![image](https://github.com/user-attachments/assets/46c21660-eb49-4c15-bcac-af0060c712db)
-![image](https://github.com/user-attachments/assets/f9f1ec16-9a5e-4505-a387-b71cb41c8595)
+## 🔧 Admin Dashboard Preview
+
+### 👤 Profile  
+![Admin Profile](https://github.com/user-attachments/assets/88e44084-583e-46c4-8175-27d8c2c7897a)
+
+---
+
+### 📝 Petitions  
+![Admin Petitions](https://github.com/user-attachments/assets/7f6dd854-ba12-46a8-9b87-04f179bed3ac)
+
+---
+
+### 🏢 Organization  
+![Admin Organization](https://github.com/user-attachments/assets/999e3bb6-5d40-4607-9ea7-99df5fee811d)
+
+---
+
+### 📊 Analytics  
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/49794a28-2174-43bb-8741-ba24b11398c9" alt="Analytics 1" width="48%" />
+  <img src="https://github.com/user-attachments/assets/848ac751-11d7-42a2-9efd-6665ed15f0fd" alt="Analytics 2" width="48%" />
+</div>
+
+---
+
+### 👥 Users  
+![Users](https://github.com/user-attachments/assets/f7f367a7-9abc-4329-a4f9-615d01892fd6)
+
+---
+
+### 🗂️ Departments  
+![Departments](https://github.com/user-attachments/assets/46c21660-eb49-4c15-bcac-af0060c712db)
+
+---
+
+### 🛡️ User Roles  
+![User Roles](https://github.com/user-attachments/assets/f9f1ec16-9a5e-4505-a387-b71cb41c8595)
+
 
 # Petition Handler (Organization User)
 ![image](https://github.com/user-attachments/assets/98cef845-1c60-4b2c-a34f-ab4527662843)
