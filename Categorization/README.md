@@ -9,6 +9,13 @@ This is a FastAPI-based service that classifies text into predefined departments
 - Provides an API endpoint for classification.
 - Logs execution time for performance analysis.
 
+## 🧰 Tech Stack
+- Framework: FastAPI
+- Model Inference: llama-cpp-python
+- Model: Mistral-7B-Instruct (Q4_K_M GGUF)
+- Deployment: Hugging Face Spaces (Docker-based)
+- Runtime: Python 3.10+
+
 ## Space Configuration
 This project is hosted on **Hugging Face Spaces** using Docker.
 
@@ -71,8 +78,26 @@ https://kasinathansj-categorization.hf.space
 }
 ```
 
-## Logs
-Application logs are visible in the Hugging Face Space runtime output.
+### ⚡ Quick Start
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/your-username/text-classification-api.git
+    cd text-classification-api
+    ```
+
+2. Install dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+3. Download and place the model:
+    - Download from: TheBloke/Mistral-7B-Instruct-v0.1-GGUF
+    - Place mistral-7b-instruct-v0.1.Q4_K_M.gguf in the project root.
+
+4. Run the FastAPI app:
+    ```bash
+    uvicorn app:app --host 0.0.0.0 --port 7860
+    ```
 
 ## License
 MIT License
