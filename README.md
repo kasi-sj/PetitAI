@@ -6,6 +6,9 @@ PetitAI is a full-fledged, AI-powered platform designed to streamline petition c
 
 ## 📸 Application Preview
 
+![image](https://github.com/user-attachments/assets/7f60102c-12dd-4f24-9a02-1f8af915fdc9)
+
+
 ### 🛎️ Notification Templates
 
 <div align="center">
