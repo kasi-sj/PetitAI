@@ -1,3 +1,4 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 <h1 align="center" id="title"> 🧠 PetitAI – Intelligent Petition Management System </h1>
 
 
@@ -7,7 +8,6 @@ PetitAI is a full-fledged, AI-powered platform designed to streamline petition c
 ## 🧾 Activity Diagram
 ![petition-process-flow](https://github.com/user-attachments/assets/163d0d66-2467-42a4-8442-82ff132db4c4)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 ## 🗂 Project Components
 
