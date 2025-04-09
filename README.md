@@ -47,21 +47,44 @@ PetitAI is a full-fledged, AI-powered platform designed to streamline petition c
   </tr>
 </table>
 
+## 🧑‍💼 Petition Handler Dashboard Preview
 
-# Petition Handler (Organization User)
-![image](https://github.com/user-attachments/assets/98cef845-1c60-4b2c-a34f-ab4527662843)
-![image](https://github.com/user-attachments/assets/f8accbd9-ae11-44a5-b48c-b53e15b236dc)
-![image](https://github.com/user-attachments/assets/a9d246d2-ea6e-4b12-9080-56c4345185ff)
-![image](https://github.com/user-attachments/assets/0ab8a65d-6f16-4082-acc6-c83b42f55355)
-![image](https://github.com/user-attachments/assets/b87c99b5-2dba-4b01-830b-da539c81a4c0)
-![image](https://github.com/user-attachments/assets/bf1cafe4-4629-41c5-90f5-4cbe172639cc)
-![image](https://github.com/user-attachments/assets/eec9657e-f2c3-4596-b13d-baa61b38ec23)
-![image](https://github.com/user-attachments/assets/01703e86-e453-47eb-8097-ec5f0f70ce87)
+<table>
+  <tr>
+    <th>👤 Profile</th>
+    <th>📝 Petitions</th>
+    <th>🏢 Organization</th>
+    <th>📊 Analytics</th>
+    <th>👥 Users</th>
+    <th>🗂️ Departments</th>
+    <th>🛡️ User Roles</th>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/98cef845-1c60-4b2c-a34f-ab4527662843" width="150px"/></td>
+    <td><img src="https://github.com/user-attachments/assets/f8accbd9-ae11-44a5-b48c-b53e15b236dc" width="150px"/></td>
+    <td><img src="https://github.com/user-attachments/assets/a9d246d2-ea6e-4b12-9080-56c4345185ff" width="150px"/></td>
+    <td>
+      <img src="https://github.com/user-attachments/assets/0ab8a65d-6f16-4082-acc6-c83b42f55355" width="74px"/>
+      <img src="https://github.com/user-attachments/assets/b87c99b5-2dba-4b01-830b-da539c81a4c0" width="74px"/>
+    </td>
+    <td><img src="https://github.com/user-attachments/assets/bf1cafe4-4629-41c5-90f5-4cbe172639cc" width="150px"/></td>
+    <td><img src="https://github.com/user-attachments/assets/eec9657e-f2c3-4596-b13d-baa61b38ec23" width="150px"/></td>
+    <td><img src="https://github.com/user-attachments/assets/01703e86-e453-47eb-8097-ec5f0f70ce87" width="150px"/></td>
+  </tr>
+</table>
 
-# Petition Submitter (User)
-![image](https://github.com/user-attachments/assets/5f177112-9985-434e-a2b0-af5be25a5c68)
-![image](https://github.com/user-attachments/assets/015abfc5-d094-4252-a8d8-079070902193)
-![image](https://github.com/user-attachments/assets/b6cb1efa-3b34-4259-97da-0f6027f3ef13)
+## 🙋‍♂️ Petition Submitter Dashboard Preview
+
+<table>
+  <tr>
+    <th>👤 Profile</th>
+    <th>📋 My Petitions</th>
+    <th>➕ Create Petition</th>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/5f177112-9985-434e-a2b0-af5be25a5c68" width="200px"/></td>
+    <td
+
 
 ### 🛎️ Notification Templates
 
