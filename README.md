@@ -5,7 +5,7 @@
 PetitAI is a full-fledged, AI-powered platform designed to streamline petition creation, processing, and management using modern web technologies, distributed systems, and machine learning. It brings together a user-friendly interface with robust backend services to automate the petition workflow from submission to resolution.
 ---
 
-## 📸 Application Preview
+## 📸 Application Preview (Landing Page)
 
 <img src="https://github.com/user-attachments/assets/7f60102c-12dd-4f24-9a02-1f8af915fdc9" width="100%"/>
 
