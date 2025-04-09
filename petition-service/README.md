@@ -274,33 +274,33 @@ This is a concise reference for all the routes used in the Petition Service.
 
 ## Quick Start
 
-1. **Clone the repository and install dependencies:**
+### 1. **Clone the repository and install dependencies:**
    ```bash
    git clone https://github.com/kasi-sj/PetitAI.git
    cd PetitAI/petition-service
    ```
-# 2. **Set up environment variables:**
+### 2. **Set up environment variables:**
   ```bash
   npm install
   ```
 
-# 3. Set up environment variables
+### 3. Set up environment variables
   ```bash
   cp .env.example .env
   # Then update the values in .env as needed
   ```
 
 
-# 4. Generate Prisma client
+### 4. Generate Prisma client
   ```bash
   npx prisma generate
   ```
 
-# 5. Run database migrations
+### 5. Run database migrations
   ```bash
   npx prisma migrate dev
   ```
-# 6. Start the development server
+### 6. Start the development server
   ```bash
   npm run dev
   ```
