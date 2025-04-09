@@ -1,16 +1,7 @@
 # PetitAI-Auth
 
-PetitAI-Auth is a module within the PetitAI project, designed to handle authentication and authorization functionalities.
-
-## Table of Contents
-
-- [Features](#features)
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Configuration](#configuration)
-- [Contributing](#contributing)
-- [License](#license)
+- PetitAI-Auth is a module within the PetitAI project, designed to handle authentication and authorization functionalities.
+- Email notification service for login, signup, and verification flows.
 
 ## Features
 
@@ -59,15 +50,6 @@ PetitAI-Auth is a module within the PetitAI project, designed to handle authenti
 
 Configuration settings can be adjusted in the `application.properties` or `application.yml` file located in the `src/main/resources` directory. These settings include database connections, security parameters, and other application-specific configurations.
 
-## Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature/YourFeature`).
-3. Commit your changes (`git commit -m 'Add YourFeature'`).
-4. Push to the branch (`git push origin feature/YourFeature`).
-5. Open a pull request.
 
 ## License
 
