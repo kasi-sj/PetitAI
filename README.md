@@ -8,6 +8,26 @@ PetitAI is a full-fledged, AI-powered platform designed to streamline petition c
 
 ![image](https://github.com/user-attachments/assets/7f60102c-12dd-4f24-9a02-1f8af915fdc9)
 
+# Admin
+![image](https://github.com/user-attachments/assets/88e44084-583e-46c4-8175-27d8c2c7897a)
+![image](https://github.com/user-attachments/assets/7f6dd854-ba12-46a8-9b87-04f179bed3ac)
+![image](https://github.com/user-attachments/assets/999e3bb6-5d40-4607-9ea7-99df5fee811d)
+![image](https://github.com/user-attachments/assets/49794a28-2174-43bb-8741-ba24b11398c9)
+![image](https://github.com/user-attachments/assets/848ac751-11d7-42a2-9efd-6665ed15f0fd)
+![image](https://github.com/user-attachments/assets/f7f367a7-9abc-4329-a4f9-615d01892fd6)
+![image](https://github.com/user-attachments/assets/46c21660-eb49-4c15-bcac-af0060c712db)
+![image](https://github.com/user-attachments/assets/f9f1ec16-9a5e-4505-a387-b71cb41c8595)
+
+# Petition Handler (Organization User)
+![image](https://github.com/user-attachments/assets/98cef845-1c60-4b2c-a34f-ab4527662843)
+![image](https://github.com/user-attachments/assets/f8accbd9-ae11-44a5-b48c-b53e15b236dc)
+![image](https://github.com/user-attachments/assets/a9d246d2-ea6e-4b12-9080-56c4345185ff)
+![image](https://github.com/user-attachments/assets/0ab8a65d-6f16-4082-acc6-c83b42f55355)
+![image](https://github.com/user-attachments/assets/b87c99b5-2dba-4b01-830b-da539c81a4c0)
+![image](https://github.com/user-attachments/assets/bf1cafe4-4629-41c5-90f5-4cbe172639cc)
+![image](https://github.com/user-attachments/assets/eec9657e-f2c3-4596-b13d-baa61b38ec23)
+![image](https://github.com/user-attachments/assets/01703e86-e453-47eb-8097-ec5f0f70ce87)
+
 
 ### 🛎️ Notification Templates
 
