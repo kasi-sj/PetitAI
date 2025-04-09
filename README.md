@@ -7,44 +7,45 @@ PetitAI is a full-fledged, AI-powered platform designed to streamline petition c
 ## 📸 Application Preview
 
 ![image](https://github.com/user-attachments/assets/7f60102c-12dd-4f24-9a02-1f8af915fdc9)
-
 ## 🔧 Admin Dashboard Preview
 
-### 👤 Profile  
-![Admin Profile](https://github.com/user-attachments/assets/88e44084-583e-46c4-8175-27d8c2c7897a)
-
----
-
-### 📝 Petitions  
-![Admin Petitions](https://github.com/user-attachments/assets/7f6dd854-ba12-46a8-9b87-04f179bed3ac)
-
----
-
-### 🏢 Organization  
-![Admin Organization](https://github.com/user-attachments/assets/999e3bb6-5d40-4607-9ea7-99df5fee811d)
-
----
-
-### 📊 Analytics  
-<div align="center">
-  <img src="https://github.com/user-attachments/assets/49794a28-2174-43bb-8741-ba24b11398c9" alt="Analytics 1" width="48%" />
-  <img src="https://github.com/user-attachments/assets/848ac751-11d7-42a2-9efd-6665ed15f0fd" alt="Analytics 2" width="48%" />
-</div>
-
----
-
-### 👥 Users  
-![Users](https://github.com/user-attachments/assets/f7f367a7-9abc-4329-a4f9-615d01892fd6)
-
----
-
-### 🗂️ Departments  
-![Departments](https://github.com/user-attachments/assets/46c21660-eb49-4c15-bcac-af0060c712db)
-
----
-
-### 🛡️ User Roles  
-![User Roles](https://github.com/user-attachments/assets/f9f1ec16-9a5e-4505-a387-b71cb41c8595)
+<table>
+  <tr>
+    <th>👤 Profile</th>
+    <th>📝 Petitions</th>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/88e44084-583e-46c4-8175-27d8c2c7897a" width="100%"/></td>
+    <td><img src="https://github.com/user-attachments/assets/7f6dd854-ba12-46a8-9b87-04f179bed3ac" width="100%"/></td>
+  </tr>
+  <tr>
+    <th>🏢 Organization</th>
+    <th>📊 Analytics</th>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/999e3bb6-5d40-4607-9ea7-99df5fee811d" width="100%"/></td>
+    <td>
+      <img src="https://github.com/user-attachments/assets/49794a28-2174-43bb-8741-ba24b11398c9" width="49%"/>
+      <img src="https://github.com/user-attachments/assets/848ac751-11d7-42a2-9efd-6665ed15f0fd" width="49%"/>
+    </td>
+  </tr>
+  <tr>
+    <th>👥 Users</th>
+    <th>🗂️ Departments</th>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/f7f367a7-9abc-4329-a4f9-615d01892fd6" width="100%"/></td>
+    <td><img src="https://github.com/user-attachments/assets/46c21660-eb49-4c15-bcac-af0060c712db" width="100%"/></td>
+  </tr>
+  <tr>
+    <th colspan="2">🛡️ User Roles</th>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">
+      <img src="https://github.com/user-attachments/assets/f9f1ec16-9a5e-4505-a387-b71cb41c8595" width="50%"/>
+    </td>
+  </tr>
+</table>
 
 
 # Petition Handler (Organization User)
