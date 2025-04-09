@@ -1,260 +1,306 @@
 # Petition Service - PetitAI
 
-A backend service for managing petitions, users, organization users, and departments.
+- PetitAI is a backend service designed to manage petitions within an organizational structure.
+- The service integrates both SQL (PostgreSQL) and NoSQL (MongoDB) databases and uses a Kafka-compatible message queue (Redpanda) for automation and asynchronous processing.
+- PetitAI provides robust APIs for handling organizations, departments, users, roles, petitions, and status updates — all validated with Zod and organized following a clean service-controller architecture.
 
-## Tech Stack
-- **Backend:** Node.js, TypeScript, Express.js
-- **Database:** PostgreSQL (via Prisma), MongoDB (via Mongoose)
-- **Message Queue:** Redpanda (Kafka-compatible)
-- **Validation:** Zod
-- **Testing:** Jest, Supertest
+### 🔄 Request Flow
+
+The flow of a typical API request in the PetitAI backend:
+
+     ┌────────────────────────────┐
+     │     Client/API Request     │  # server (index.ts)
+     └────────────┬───────────────┘
+                  │
+                  ▼
+     ┌─────────────────────────────┐
+     │   Route is matched (Express)│ # routes
+     └────────────┬────────────────┘
+                  │
+                  ▼
+     ┌────────────────────────────┐
+     │ Validate & Authenticate    │  # middleware
+     │    (Zod + Middleware)      │
+     └────────────┬───────────────┘
+                  │
+                  ▼
+     ┌────────────────────────────┐
+     │   Controller function      │  # controllers
+     │ receives the request       │
+     └────────────┬───────────────┘
+                  │
+                  ▼
+     ┌────────────────────────────┐
+     │    Call relevant services  │  # services
+     │   (Business logic layer)   │
+     └────────────┬───────────────┘
+                  │
+                  ▼
+     ┌────────────────────────────┐
+     │   Interact with database   │  # prisma / mongoose
+     │ (PostgreSQL / MongoDB)     │
+     └────────────┬───────────────┘
+                  │
+                  ▼
+     ┌────────────────────────────┐
+     │ Return structured response │  # json
+     └────────────────────────────┘
+
+### 🛠️ Tech Stack
+
+- Node.js (TypeScript)
+- Express.js
+- PostgreSQL (via Prisma)
+- MongoDB (via Mongoose)
+- Zod (for validation)
+- Redpanda (Kafka-compatible message queue)
+
 # API Reference
 
 This is a concise reference for all the routes used in the Petition Service.
 
 ---
 
-## Departments (`/departments`)
+<details>
+<summary><strong>📁 Departments <code>`/departments`</code> </strong>
+</summary>
+
 - **GET /**  
-  *Get all departments*  
-  `validate(getAllDepartmentsSchema)` → `getAllDepartments`
+  _Get all departments_
 
 - **GET /:id**  
-  *Get a department by ID*  
-  `validate(getDepartmentSchema)` → `getDepartmentById`
+  _Get a department by ID_
 
 - **POST /**  
-  *Create a department*  
-  `validate(createDepartmentSchema)` → `createDepartment`
+  _Create a department_
 
 - **PUT /:id**  
-  *Update a department*  
-  `validate(updateDepartmentSchema)` → `updateDepartment`
+  _Update a department_
 
 - **DELETE /:id**  
-  *Delete a department*  
-  `validate(deleteDepartmentSchema)` → `deleteDepartment`
+  _Delete a department_
 
 - **GET /:id/available-user**  
-  *Get available low-level users for a department*  
-  `validate(getAvailableUsersSchema)` → `getAvailableLowLevelUsers`
+  _Get available low-level users for a department_
 
 - **POST /is-department-exist**  
-  *Check if a department exists*  
-  `validate(isDepartmentExistSchema)` → `isDepartmentExist`
+  _Check if a department exists_
 
 - **GET /:id/organization-users**  
-  *Get organization users for a department*  
-  `validate(getOrganizationUsersSchema)` → `getOrganizationUsers`
+ _Get organization users for a department_
+</details>
 
 ---
 
-## Organization Users (`/organization-users`)
+<details> <summary><strong>📁 Organization Users <code>`/organization-users`</code></strong></summary>
+
 - **GET /**  
-  *Get all organization users*  
-  `validate(getAllOrganizationUsersSchema)` → `getAllOrganizationUsers`
+  _Get all organization users_
 
 - **GET /:id**  
-  *Get an organization user by ID*  
-  `validate(getOrganizationUserSchema)` → `getOrganizationUserById`
+  _Get an organization user by ID_
 
 - **POST /**  
-  *Create an organization user*  
-  `validate(createOrganizationUserSchema)` → `createOrganizationUser`
+  _Create an organization user_
 
 - **PUT /:id**  
-  *Update an organization user*  
-  `validate(updateOrganizationUserSchema)` → `updateOrganizationUser`
+  _Update an organization user_
 
 - **DELETE /:id**  
-  *Delete an organization user*  
-  `validate(deleteOrganizationUserSchema)` → `deleteOrganizationUser`
+  _Delete an organization user_
 
 - **POST /is-user-exist**  
-  *Check if a user exists*  
-  `validate(isUserExistSchema)` → `isUserExist`
+  _Check if a user exists_
 
 - **GET /report-to/role/:roleId**  
-  *Get reporting user by role ID*  
-  `validate(getReportToUserByRoleIdSchema)` → `getReportToUserByRoleId`
+  _Get reporting user by role ID_
 
 - **POST /login**  
-  *Login organization user*  
-  `validate(loginSchema)` → `loginOrganizationUser`
+  _Login organization user_
 
 - **GET /:id/petitions**  
-  *Get petitions for an organization user*  
-  `validate(getOrganizationUserPetitionSchema)` → `getOrganizationUserPetition`
+  _Get petitions for an organization user_
+
+</details>
 
 ---
 
-## Organizations (`/organizations`)
+<details> <summary><strong>📁 Organizations <code>`/organizations`</code></strong></summary>
+
 - **GET /**  
-  *Get all organizations*  
-  `validate(getAllOrganizationsSchema)` → `getAllOrganizations`
+  _Get all organizations_
 
 - **GET /:id**  
-  *Get an organization by ID*  
-  `validate(getOrganizationSchema)` → `getOrganizationById`
+  _Get an organization by ID_
 
 - **POST /**  
-  *Create an organization*  
-  `validate(createOrganizationSchema)` → `createOrganization`
+  _Create an organization_
 
 - **PUT /:id**  
-  *Update an organization*  
-  `validate(updateOrganizationSchema)` → `updateOrganization`
+  _Update an organization_
 
 - **DELETE /:id**  
-  *Delete an organization*  
-  `validate(deleteOrganizationSchema)` → `deleteOrganization`
+  _Delete an organization_
 
 - **GET /:id/departments**  
-  *Get departments for an organization*  
-  `validate(getOrganizationDepartmentsSchema)` → `getOrganizationDepartments`
+  _Get departments for an organization_
 
 - **GET /:id/roles**  
-  *Get roles for an organization*  
-  `validate(getOrganizationRolesSchema)` → `getOrganizationRoles`
+  _Get roles for an organization_
 
 - **GET /:id/organization-users**  
-  *Get organization users for an organization*  
-  `validate(getOrganizationUsersSchema)` → `getOrganizationUsers`
+  _Get organization users for an organization_
 
 - **GET /name/:name**  
-  *Get an organization by name*  
-  `validate(getOrganizationByNameSchema)` → `getOrganizationByName`
+  _Get an organization by name_
 
 - **GET /:id/petitions-count**  
-  *Get petition count for an organization*  
-  `validate(getPetitionCountSchema)` → `getPetitionCount`
+  _Get petition count for an organization_
 
 - **GET /:id/petitions-count-by-department**  
-  *Get petition count by department for an organization*  
-  `validate(getPetitionCountByDepartmentSchema)` → `getPetitionCountByDepartment`
+ _Get petition count by department for an organization_
+</details>
 
 ---
 
-## Petitions (`/petitions`)
+<details> <summary><strong>📁 Petitions <code>`/petitions`</code></strong></summary>
+
 - **GET /**  
-  *Get all petitions*  
-  `validate(getAllPetitionsSchema)` → `getAllPetitions`
+  _Get all petitions_
 
 - **GET /:id**  
-  *Get a petition by ID*  
-  `validate(getPetitionSchema)` → `getPetitionById`
+  _Get a petition by ID_
 
 - **POST /**  
-  *Create a petition*  
-  `validate(createPetitionSchema)` → `createPetition`
+  _Create a petition_
 
 - **PUT /:id**  
-  *Update a petition*  
-  `validate(updatePetitionSchema)` → `updatePetition`
+  _Update a petition_
 
 - **DELETE /:id**  
-  *Delete a petition*  
-  `validate(deletePetitionSchema)` → `deletePetition`
+  _Delete a petition_
 
 - **POST /most-similar**  
-  *Get most similar petition*  
-  `validate(getMostSimilarPetitionSchema)` → `getMostSimilarPetition`
+  _Get most similar petition_
 
 - **POST /:id/assign**  
-  *Assign a petition to an organization user*  
-  `validate(assignPetitionToOrgUserSchema)` → `assignPetitionToOrgUser`
+  _Assign a petition to an organization user_
 
 - **GET /:id/getSimilarPetitions**  
-  *Get similar petitions*  
-  `validate(getMostSimilarPetitionsSchema)` → `getSimilarPetitions`
+ _Get similar petitions_
+</details>
 
 ---
 
-## Queues (`/queues`)
+<details> <summary><strong>📁 Queues <code>`/queues`</code></strong></summary>
+
 - **POST /add**  
-  *Add a message to the queue*  
-  `validate(createQueueMessageSchema)` → `addMessageToQueue`
+  _Add a message to the queue_
+
+</details>
 
 ---
 
-## Roles (`/roles`)
+<details> <summary><strong>📁 Roles <code>`/roles`</code></strong></summary>
+
 - **GET /**  
-  *Get all roles*  
-  `validate(getAllRolesSchema)` → `getAllRoles`
+  _Get all roles_
 
 - **GET /:id**  
-  *Get a role by ID*  
-  `validate(getRoleSchema)` → `getRoleById`
+  _Get a role by ID_
 
 - **POST /**  
-  *Create a role*  
-  `validate(createRoleSchema)` → `createRole`
+  _Create a role_
 
 - **PUT /:id**  
-  *Update a role*  
-  `validate(updateRoleSchema)` → `updateRole`
+  _Update a role_
 
 - **DELETE /:id**  
-  *Delete a role*  
-  `validate(deleteRoleSchema)` → `deleteRole`
+  _Delete a role_
 
 - **POST /is-role-exist**  
-  *Check if a role exists*  
-  `validate(isRoleExists)` → `isRoleExist`
+  _Check if a role exists_
+
+</details>
 
 ---
 
-## Status Updates (`/status-updates`)
+<details> <summary><strong>📁 Status Updates <code>`/status-updates`</code></strong></summary>
+
 - **POST /**  
-  *Create a status update*  
-  `validate(createStatusUpdateSchema)` → `createStatusUpdate`
+  _Create a status update_
+
+</details>
 
 ---
 
-## Users (`/users`)
+<details> <summary><strong>📁 Users <code>`/users`</code></strong></summary>
+
 - **GET /**  
-  *Get all users*  
-  `validate(getAllUsersSchema)` → `getAllUsers`
+  _Get all users_
 
 - **GET /:id**  
-  *Get a user by ID*  
-  `validate(getUserSchema)` → `getUserById`
+  _Get a user by ID_
 
 - **POST /**  
-  *Create a user*  
-  `validate(createUserSchema)` → `createUser`
+  _Create a user_
 
 - **PUT /:id**  
-  *Update a user*  
-  `validate(updateUserSchema)` → `updateUser`
+  _Update a user_
 
 - **DELETE /:id**  
-  *Delete a user*  
-  `validate(deleteUserSchema)` → `deleteUser`
+  _Delete a user_
 
 - **GET /:id/organizations**  
-  *Get organizations associated with a user*  
-  `validate(getUserOrganizationsSchema)` → `getUserOrganizations`
+  _Get organizations associated with a user_
 
 - **GET /:id/petitions**  
-  *Get petitions associated with a user*  
-  `validate(getUserPetitionsSchema)` → `getUserPetitions`
+  _Get petitions associated with a user_
 
 - **GET /:id/petitions/admin**  
-  *Get admin petitions for a user*  
-  `validate(getOrganizationPetition)` → `getAdminOrganizationPetition`
+  _Get admin petitions for a user_
+
+</details>
 
 ---
 
-## Root
+<details> <summary><strong>📁 Root <code>`/`</code></strong></summary>
+
 - **GET /**  
-  *Health Check*  
+  _Health Check_  
   Returns a message: "Petition Service API is working (3)"
+
+</details>
 
 ## Quick Start
 
-1. Clone the repository and install dependencies:
+1. **Clone the repository and install dependencies:**
    ```bash
    git clone https://github.com/kasi-sj/PetitAI.git
    cd PetitAI/petition-service
-   npm install
+   ```
+# 2. **Set up environment variables:**
+  ```bash
+  npm install
+  ```
+
+# 3. Set up environment variables
+  ```bash
+  cp .env.example .env
+  # Then update the values in .env as needed
+  ```
+
+
+# 4. Generate Prisma client
+  ```bash
+  npx prisma generate
+  ```
+
+# 5. Run database migrations
+  ```bash
+  npx prisma migrate dev
+  ```
+# 6. Start the development server
+  ```bash
+  npm run dev
+  ```
