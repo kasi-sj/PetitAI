@@ -1,9 +1,8 @@
 # Petition Processing Kafka Consumer Service
 
-[![Node.js Version](https://img.shields.io/badge/node-%3E%3D16.0.0-brightgreen)](https://nodejs.org/)
-[![Kafka Compatible](https://img.shields.io/badge/Apache_Kafka-3.0+-blue)](https://kafka.apache.org/)
+Petition Processing Kafka Consumer Service is a distributed microservice within the PetitAI ecosystem, designed to automate the background processing of petitions using a Kafka-compatible queue (e.g., Apache Kafka or Redpanda).
 
-A distributed consumer service for processing petitions through multiple stages using Apache Kafka. Part of the PetitAI ecosystem for intelligent petition management.
+It consumes events from multiple Kafka topics—each representing a specific stage in the petition lifecycle such as initialization, categorization, duplication check, user assignment, and notification. This architecture enables horizontal scaling, decoupled logic handling, and real-time petition workflow automation.
 
 ## 📌 Features
 
@@ -78,7 +77,6 @@ NOTIFICATION_RETRIES=3
 node index.js
 ```
 
-### 🔧 Environment Variables
 ### 🔧 Environment Variables
 
 | Variable         | Default              | Description                        |

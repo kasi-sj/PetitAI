@@ -55,6 +55,26 @@ The flow of a typical API request in the PetitAI backend:
 - Zod (for validation)
 - Redpanda (Kafka-compatible message queue)
 
+### 📁 Folder Structure
+```
+petition-service/
+├── dist/                   # Compiled JS files (output from TypeScript)
+├── prisma/                 # Prisma schema and migration files
+├── src/                    # Main source code
+│   ├── config/             # Environment setup and configurations
+│   ├── controllers/        # Controller functions (handle route logic)
+│   ├── middleware/         # Custom Express middlewares
+│   ├── models/             # Mongoose & Prisma models
+│   ├── routes/             # Express routes
+│   ├── services/           # Business logic layer
+│   └── validators/         # Zod validation schemas
+├── index.ts                # App entry point
+├── Dockerfile              # Docker config
+├── package.json            # NPM dependencies and scripts
+├── tsconfig.json           # TypeScript configuration
+└── README.md               # Project documentation
+```
+
 # API Reference
 
 This is a concise reference for all the routes used in the Petition Service.
