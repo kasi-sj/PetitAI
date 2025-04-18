@@ -2,8 +2,7 @@
 <h1 align="center" id="title"> 🧠 PetitAI – Intelligent Petition Management System </h1>
 
 
-PetitAI is a full-fledged, AI-powered platform designed to streamline petition creation, processing, and management using modern web technologies, distributed systems, and machine learning. It brings together a user-friendly interface with robust backend services to automate the petition workflow from submission to resolution.
-
+PetitAI is a full-fledged, AI-powered platform designed to streamline petition creation, processing, and management using modern web technologies, distributed systems, and machine learning. It features a user-friendly interface backed by scalable services that automate the entire petition lifecycle—from submission to resolution. To enhance efficiency, PetitAI incorporates vector search to detect repeated grievances by comparing semantic similarities between petition content. This allows the system to intelligently group and prioritize similar issues, enabling quicker responses and reducing redundancy in the resolution process.
 
 ## 🧾 Activity Diagram
 ![petition-process-flow](https://github.com/user-attachments/assets/163d0d66-2467-42a4-8442-82ff132db4c4)
